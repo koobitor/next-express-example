@@ -56,7 +56,7 @@ class Index extends React.Component {
     const { bitcoin } = this.state
     return(
       <div>
-        <LineChart width={400} height={400} data={bitcoin}>
+        <LineChart width={1200} height={400} data={bitcoin}>
           <Line type="monotone" dataKey="value" />
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="key" />
