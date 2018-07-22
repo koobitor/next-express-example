@@ -1,0 +1,15 @@
+{
+  "name": "next-express-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:koobitor/next-express-example.git",
+  "author": "Sakol Assawasagool <koobitor@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.4",
+    "next": "^6.1.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
+}
