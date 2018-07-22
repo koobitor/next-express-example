@@ -6,8 +6,7 @@ const next = require('next')
 const glob = require('glob')
 const path = require('path')
 global.appRoot = path.resolve(__dirname)
-const env = require('dotenv').config()
-const config = env.parsed
+const dotenv = require('dotenv').config()
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -18,7 +17,7 @@ app.prepare()
   .then(() => {
     const server = express()
 
-    mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI || config.MONGODB_URL)
+    mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGODB_URL)
 
     server.use(express.static('static'))
     server.use(bodyParser.json({ type: 'application/json' }))
