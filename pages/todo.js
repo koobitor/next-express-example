@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Progress from 'react-progress'
 
 class todo extends React.Component {
 
@@ -12,21 +13,33 @@ class todo extends React.Component {
   }
 
   constructor(props) {
-    super(props)
+    super()
+
     this.state = {
-      todo: this.props.todo,
-      task: ''
+      todo: props.todo,
+      task: '',
+      progress: 50
     }
+
     this.fetch = this.fetch.bind(this)
     this.submit = this.submit.bind(this)
     this.change = this.change.bind(this)
   }
 
+  componentDidMount() {
+    this.setState({
+      progress: 100
+    })
+  }
+
   async submit(e) {
     e.preventDefault()
+    this.setState({
+      progress: 50
+    })
     await axios
       .post('http://localhost:3000/api/v1/todo',{ task:  this.state.task })
-    this.fetch()
+    await this.fetch()
   }
 
   async fetch() {
@@ -37,7 +50,8 @@ class todo extends React.Component {
       })
     this.setState({
       todo: todo.data.data,
-      task: ''
+      task: '',
+      progress: 100
     })
   }
 
@@ -60,9 +74,10 @@ class todo extends React.Component {
   }
 
   render() {
-    const { todo } = this.state
+    const { todo, progress } = this.state
     return(
       <div>
+        <Progress percent={progress} />
         <form onSubmit={this.submit}>
           <input onKeyUp={this.change} />
         </form>

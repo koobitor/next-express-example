@@ -3709,6 +3709,10 @@ react-lifecycles-compat@3.0.4, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
+react-progress@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/react-progress/-/react-progress-0.0.12.tgz#386194cdfebaa65b452494284a9677cea3980bba"
+
 react-resize-detector@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-1.1.0.tgz#4a9831fa3caad32230478dd0185cbd2aa91a5ebf"
