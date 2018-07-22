@@ -1,46 +1,46 @@
 const router = express.Router()
 
 router.get('/', async (req, res) => {
-  const blog = await Blog
+  const todo = await Todo
     .find()
-    .then((blog) => {
-      return blog
+    .then((todo) => {
+      return todo
     })
     .catch((err) => {
       return err
     })
 
   res.status(200).json({
-    data: blog
+    data: todo
   })
 })
 
 router.get('/:id', async (req, res) => {
-  const blog = await Blog
+  const todo = await Todo
     .findOne()
     .where({
       _id: req.params.id
     })
-    .then((blog) => {
-      return blog
+    .then((todo) => {
+      return todo
     })
     .catch((err) => {
       return err
     })
 
   res.status(200).json({
-    data: blog
+    data: todo
   })
 })
 
 router.post('/', (req, res) => {
 
-  const newBlog = new Blog(req.body)
-  newBlog
+  const newTodo = new Todo(req.body)
+  newTodo
     .save()
-    .then((blog) => {
+    .then((todo) => {
       res.status(200).json({
-        data: blog
+        data: todo
       })
     })
     .catch((error) => {
@@ -61,14 +61,14 @@ router.put('/', async (req, res) => {
 
   req.body.update = new Date()
 
-  const blog = await Blog
+  const todo = await Todo
     .update(where, req.body)
-    .then((blog) => {
-      return blog
+    .then((todo) => {
+      return todo
     })
 
   res.status(200).json({
-    data: blog
+    data: todo
   })
 })
 
@@ -78,14 +78,14 @@ router.delete('/', async (req, res) => {
     _id: req.body._id
   }
 
-  const blog = await Blog
+  const todo = await Todo
     .deleteOne(where)
-    .then((blog) => {
-      return blog
+    .then((todo) => {
+      return todo
     })
 
   res.status(200).json({
-    data: blog
+    data: todo
   })
 })
 
