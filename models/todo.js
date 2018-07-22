@@ -1,6 +1,9 @@
 const todoSchema = Schema({
   task: String,
-  status: String,
+  status: {
+    type: String,
+    default: 'pending'
+  },
   group: String,
   create: {
     type: Date,
