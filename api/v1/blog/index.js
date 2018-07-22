@@ -1,16 +1,36 @@
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+  const blog = await Blog
+    .find()
+    .then((blog) => {
+      return blog
+    })
+    .catch((err) => {
+      return err
+    })
+
   res.status(200).json({
-    data: 'blog'
+    data: blog
   })
 })
 
 // /api/v1/blog/1
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
+  const blog = await Blog
+    .findOne()
+    .where({
+      _id: req.params.id
+    })
+    .then((blog) => {
+      return blog
+    })
+    .catch((err) => {
+      return err
+    })
+
   res.status(200).json({
-    data: 'blog',
-    params: req.params
+    data: blog
   })
 })
 
