@@ -16,12 +16,16 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-progress": "^0.0.12",
-    "recharts": "^1.1.0"
+    "recharts": "^1.1.0",
+    "snyk": "^1.161.1"
   },
   "scripts": {
-    "dev": "nodemon -w api -w apps -w models -w server.js server.js"
+    "dev": "nodemon -w api -w apps -w models -w server.js server.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
     "nodemon": "^1.18.3"
-  }
+  },
+  "snyk": true
 }
